@@ -30,7 +30,6 @@ int adicionar_mensagem(Microkernel* kernel, Mensagem mensagem);
 int processar_mensagem(Microkernel* kernel);
 void enviar_mensagem(Microkernel* kernel, const char* comando, const char* nome, const char* conteudo);
 
-// Função para inicializar o Microkernel
 void init_microkernel(Microkernel* kernel) {
     kernel->inicio = 0;
     kernel->fim = 0;
@@ -80,7 +79,7 @@ void criar_arquivo(const char* nome, const char* conteudo) {
         return;
     }
     fprintf(arquivo, "%s", conteudo);  // Escreve o conteúdo no arquivo
-    fclose(arquivo);  // Fecha o arquivo
+    fclose(arquivo);  
     printf("Arquivo %s criado com sucesso.\n", nome);
 }
 
@@ -154,9 +153,9 @@ int main() {
     processar_mensagem(&kernel);
     processar_mensagem(&kernel);
 
-    // Esperar a entrada do usuário para evitar que o programa feche automaticamente
+
     printf("Pressione ENTER para sair...\n");
-    getchar();  // Pausa para esperar a entrada do usuário
+    getchar(); 
     
     return 0;
 }

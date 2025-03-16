@@ -8,7 +8,7 @@ typedef struct {
     bool necessita_atencao;
 } Dispositivo;
 
-// Função para verificar o estado do dispositivo (Polling)
+// Função para verificar o estado do dispositivo (Poolling)
 bool verificar_dispositivo(Dispositivo *dispositivo) {
     return dispositivo->necessita_atencao;
 }
@@ -18,14 +18,14 @@ void sinalizar_interrupcao(Dispositivo *dispositivo) {
     dispositivo->necessita_atencao = true;
 }
 
-// Função que implementa o polling (verificação contínua do dispositivo)
+// Função que implementa o poolling (verificação contínua do dispositivo)
 void loop_pooling(Dispositivo *dispositivo) {
     while (1) {
         // Verifica se o dispositivo precisa de atenção
         if (verificar_dispositivo(dispositivo)) {
-            printf("Dispositivo precisa de atenção! (Polling)\n");
+            printf("Dispositivo precisa de atenção! (Poolling)\n");
         } else {
-            printf("Nenhuma necessidade de atenção. (Polling)\n");
+            printf("Nenhuma necessidade de atenção. (Poolling)\n");
         }
 
         // Sempre informa ao usuário que ele pode pressionar 'Q' para sair
@@ -33,15 +33,15 @@ void loop_pooling(Dispositivo *dispositivo) {
 
         // Verificar se o usuário pressionou uma tecla para sair
         if (kbhit()) {
-            char ch = getch();  // Ler o caractere pressionado
+            char ch = getch(); 
             if (ch == 'q' || ch == 'Q') {
                 printf("Saindo do loop...\n");
-                break;  // Interrompe a execução do loop
+                break;  
             }
         }
 
-        // Aguarda 1 segundo antes de verificar novamente
-        Sleep(1000);  // Sleep em milissegundos no Windows
+        
+        Sleep(1000);  
     }
 }
 
@@ -55,7 +55,7 @@ int main() {
     // Usar GetTickCount() para controlar o tempo (em milissegundos)
     unsigned long start_time = GetTickCount();  // Tempo de início em milissegundos
 
-    // Rodando o loop de polling
+    // Rodando o loop de poolling
     while (1) {
         // Verifica o tempo passado
         unsigned long current_time = GetTickCount();
@@ -80,10 +80,10 @@ int main() {
 
         // Verificar se o usuário pressionou uma tecla para sair
         if (kbhit()) {
-            char ch = getch();  // Ler o caractere pressionado
+            char ch = getch();  
             if (ch == 'q' || ch == 'Q') {
                 printf("Saindo do loop...\n");
-                break;  // Interrompe a execução do loop
+                break;  
             }
         }
 

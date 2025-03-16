@@ -77,7 +77,7 @@ int main() {
         char entrada;
         printf("Pressione 'k' para invocar uma função do modo kernel, ou 'q' para sair: ");
         entrada = getchar();
-        getchar(); // Consome o caractere de nova linha
+        getchar(); 
 
         if (entrada == 'k') {
             executarCodigoKernel = TRUE;  

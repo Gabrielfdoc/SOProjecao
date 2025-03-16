@@ -11,12 +11,11 @@
 // Estrutura para representar um processo
 typedef struct {
     int id;
-    const char* estado;  // Mudado para const char* para evitar o aviso
+    const char* estado; 
 } Processo;
 
 // Função para mudar o estado do processo aleatoriamente
 void mudar_estado(Processo* p) {
-    // Escolher aleatoriamente um novo estado que não seja o mesmo do estado atual
     const char* novo_estado;
     do {
         switch (rand() % 3) {
@@ -54,7 +53,7 @@ void simular_processos(int num_processos, int ciclos) {
             mudar_estado(&processos[i]);
         }
 
-        // Aguardar 2 segundos para simular o tempo passando (pode ajustar isso para uma simulação mais rápida)
+        // Aguardar 2 segundos para simular o tempo passando
         sleep(2);
     }
 }
