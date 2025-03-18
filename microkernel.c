@@ -71,7 +71,6 @@ int processar_mensagem(Microkernel* kernel) {
     return 0;
 }
 
-// Função para criar um arquivo fisicamente
 void criar_arquivo(const char* nome, const char* conteudo) {
     FILE *arquivo = fopen(nome, "w");  // Abre o arquivo para escrita (se não existir, cria)
     if (arquivo == NULL) {
@@ -83,7 +82,6 @@ void criar_arquivo(const char* nome, const char* conteudo) {
     printf("Arquivo %s criado com sucesso.\n", nome);
 }
 
-// Função para ler um arquivo
 void ler_arquivo(const char* nome) {
     FILE *arquivo = fopen(nome, "r");  // Abre o arquivo para leitura
     if (arquivo == NULL) {
@@ -98,7 +96,6 @@ void ler_arquivo(const char* nome) {
     fclose(arquivo);  // Fecha o arquivo
 }
 
-// Função para excluir um arquivo
 void excluir_arquivo(const char* nome) {
     if (remove(nome) == 0) {
         printf("Arquivo %s excluído com sucesso.\n", nome);
@@ -107,7 +104,6 @@ void excluir_arquivo(const char* nome) {
     }
 }
 
-// Função para listar arquivos no diretório atual
 void listar_arquivos() {
     DIR *dir = opendir(".");  // Abre o diretório atual
     if (dir == NULL) {

@@ -53,7 +53,7 @@ void simular_processos(int num_processos, int ciclos) {
             mudar_estado(&processos[i]);
         }
 
-        // Aguardar 2 segundos para simular o tempo passando
+        //Simula o tempo passando
         sleep(2);
     }
 }

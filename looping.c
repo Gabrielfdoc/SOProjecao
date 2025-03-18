@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <conio.h>    // Para kbhit() e getch()
-#include <windows.h>  // Para Sleep() e GetTickCount()
+#include <conio.h>
+#include <windows.h>
 
 // Definição do dispositivo
 typedef struct {
