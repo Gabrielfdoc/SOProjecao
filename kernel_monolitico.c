@@ -5,7 +5,6 @@
 
 #define NOME_MAX 100
 
-// Função para criar um arquivo fisicamente
 void criar_arquivo(const char* nome, const char* conteudo) {
     FILE *arquivo = fopen(nome, "w");
     if (arquivo == NULL) {
@@ -17,7 +16,6 @@ void criar_arquivo(const char* nome, const char* conteudo) {
     printf("Arquivo %s criado com sucesso.\n", nome);
 }
 
-// Função para ler um arquivo
 void ler_arquivo(const char* nome) {
     FILE *arquivo = fopen(nome, "r");
     if (arquivo == NULL) {
@@ -32,7 +30,6 @@ void ler_arquivo(const char* nome) {
     fclose(arquivo);
 }
 
-// Função para excluir um arquivo
 void excluir_arquivo(const char* nome) {
     if (remove(nome) == 0) {
         printf("Arquivo %s excluído com sucesso.\n", nome);
@@ -41,7 +38,6 @@ void excluir_arquivo(const char* nome) {
     }
 }
 
-// Função para listar arquivos no diretório atual
 void listar_arquivos() {
     DIR *dir = opendir(".");
     if (dir == NULL) {

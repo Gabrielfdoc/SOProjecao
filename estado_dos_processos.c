@@ -14,23 +14,26 @@ typedef struct {
     const char* estado; 
 } Processo;
 
-// Função para mudar o estado do processo aleatoriamente
 void mudar_estado(Processo* p) {
     const char* novo_estado;
-    do {
-        switch (rand() % 3) {
-            case 0: novo_estado = PRONTO; break;
-            case 1: novo_estado = EXECUCAO; break;
-            case 2: novo_estado = BLOQUEADO; break;
+
+    if (p->estado == PRONTO) {
+        novo_estado = EXECUCAO; 
+    } else if (p->estado == EXECUCAO) {
+        if (rand() % 2 == 0) {
+            novo_estado = BLOQUEADO;
+        } else {
+            novo_estado = PRONTO;
         }
-    } while (novo_estado == p->estado);
-    
+    } else if (p->estado == BLOQUEADO) {
+        novo_estado = PRONTO;
+    }
+
     p->estado = novo_estado;  // Atribuindo o novo estado
 }
 
 // Função para simular a execução dos processos
 void simular_processos(int num_processos, int ciclos) {
-    // Array de processos
     Processo processos[num_processos];
     
     // Inicializando os processos com id e estado inicial como "Pronto"
@@ -53,13 +56,12 @@ void simular_processos(int num_processos, int ciclos) {
             mudar_estado(&processos[i]);
         }
 
-        //Simula o tempo passando
+        // Simula o tempo passando
         sleep(2);
     }
 }
 
 int main() {
-    // Inicializar a semente aleatória
     srand(time(NULL));
 
     // Número de processos e ciclos da simulação
@@ -68,6 +70,9 @@ int main() {
 
     // Iniciar a simulação
     simular_processos(num_processos, ciclos);
+
+    printf("Pressione ENTER para sair...\n");
+    getchar(); 
 
     return 0;
 }

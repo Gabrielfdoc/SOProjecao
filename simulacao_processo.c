@@ -78,7 +78,7 @@ int main() {
     // Aguarda todas as threads (processos) terminarem
     WaitForMultipleObjects(num_processos, threads, TRUE, INFINITE);
 
-    // Limpeza: Fecha os handles das threads
+    // Fecha os handles das threads
     for (int i = 0; i < num_processos; i++) {
         CloseHandle(threads[i]);
     }
